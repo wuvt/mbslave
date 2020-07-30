@@ -8,7 +8,7 @@ user to user.
 
 ## Installation
 
- 0. Make sure you have [Python](http://python.org/) and [psycopg2](http://initd.org/psycopg/) installed.
+ 0. Make sure you have [Python 2](http://python.org/) and [psycopg2](http://initd.org/psycopg/) installed.
     On Debian and Ubuntu, that means installing these packages:
 
         sudo apt install python python-psycopg2
@@ -61,6 +61,7 @@ user to user.
         ./mbslave-remap-schema.py <sql/caa/CreateIndexes.sql | ./mbslave-psql.py
 
         ./mbslave-remap-schema.py <sql/CreateViews.sql | ./mbslave-psql.py
+        ./mbslave-remap-schema.py <sql/CreateFunctions.sql | ./mbslave-psql.py
 
  6. Vacuum the newly created database (optional)
 
@@ -133,11 +134,11 @@ When the MusicBrainz database schema changes, the replication will stop working.
 This is usually announced on the [MusicBrainz blog](http://blog.musicbrainz.org/).
 When it happens, you need to upgrade the database.
 
-### Release 2017-05-25 (24)
+### Release 2019-05-13 (25)
 
 Run the upgrade scripts:
 
 ```
-./mbslave-remap-schema.py <sql/updates/schema-change/24.slave.sql | ./mbslave-psql.py
-echo 'UPDATE replication_control SET current_schema_sequence = 24;' | ./mbslave-psql.py
+./mbslave-remap-schema.py <sql/updates/schema-change/25.slave.sql | ./mbslave-psql.py
+echo 'UPDATE replication_control SET current_schema_sequence = 25;' | ./mbslave-psql.py
 ```
